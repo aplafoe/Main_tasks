@@ -1,4 +1,6 @@
 ﻿#include "Curves.h"
+
+#include <algorithm>
 #include <memory>
 #include <random>
 #include <ranges>
@@ -18,11 +20,9 @@ int main() {
         std::uint16_t type = curve_type(gen);
         if (type == 1) {
             list_of_curves.emplace_back(std::make_shared<Circle>(curve_params(gen)));
-        }
-        else if (type == 2) {
+        } else if (type == 2) {
             list_of_curves.emplace_back(std::make_shared<Ellipse>(curve_params(gen), curve_params(gen)));
-        }
-        else if (type == 3) {
+        } else if (type == 3) {
             list_of_curves.emplace_back(std::make_shared<Helix>(curve_params(gen), curve_params(gen)));
         }
     }
@@ -35,11 +35,9 @@ int main() {
     for (const auto& curve : list_of_curves) {
         if (auto ptr = std::dynamic_pointer_cast<Circle>(curve)) {
             std::cout << "Point and derivative for Circle - " << ptr->getPoint(t) << " " << ptr->getDerivative(t) << "\n";
-        }
-        else if (auto ptr = std::dynamic_pointer_cast<Ellipse>(curve)) {
+        } else if (auto ptr = std::dynamic_pointer_cast<Ellipse>(curve)) {
             std::cout << "Point and derivative for Ellipse - " << ptr->getPoint(t) << " " << ptr->getDerivative(t) << "\n";
-        }
-        else if (auto ptr = std::dynamic_pointer_cast<Helix>(curve)) {
+        } else if (auto ptr = std::dynamic_pointer_cast<Helix>(curve)) {
             std::cout << "Point and derivative for Helix - " << ptr->getPoint(t) << " " << ptr->getDerivative(t) << "\n";
         }
     }
@@ -60,7 +58,7 @@ int main() {
     //5th task: Sort the second container in the ascending order of circles’ radii. That is, the first element has the
     //          smallest radius, the last - the greatest.
     std::ranges::sort(circle_curves, [](const auto& lhs, const auto& rhs) {
-        return lhs->getRadiusX() < rhs->getRadiusX();
+        return lhs->getRadius() < rhs->getRadius();
         });
 
 
@@ -68,6 +66,6 @@ int main() {
     double sum_of_radius = 0.0f;
 
     for (const auto& circle : circle_curves) {
-        sum_of_radius += circle->getRadiusX();
+        sum_of_radius += circle->getRadius();
     }
 }

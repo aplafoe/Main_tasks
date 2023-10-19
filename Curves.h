@@ -64,8 +64,7 @@ class ICurve {
 public:
     virtual Point3D getPoint(double t) const noexcept = 0;
     virtual Vector3D getDerivative(double t) const noexcept = 0;
-    virtual double getRadiusX() const noexcept = 0;
-    virtual double getRadiusY() const noexcept = 0;
+    virtual double getRadius() const noexcept = 0;
     virtual ~ICurve() = default;
 };
 
@@ -89,11 +88,7 @@ public:
         return Vector3D{ -radius * std::sin(t), radius * std::cos(t), 0.0f };
     }
 
-    double getRadiusX() const noexcept override final {
-        return radius;
-    }
-
-    double getRadiusY() const noexcept override final {
+    double getRadius() const noexcept override final{
         return radius;
     }
 
@@ -124,11 +119,11 @@ public:
         return Vector3D{ -x_radius * std::sin(t), y_radius * std::cos(t), 0.0f };
     }
 
-    double getRadiusX() const noexcept override final {
+    double getRadius() const noexcept override final{
         return x_radius;
     }
 
-    double getRadiusY() const noexcept override final {
+    double getRadiusY() const noexcept {
         return y_radius;
     }
 
@@ -161,11 +156,7 @@ public:
         return Vector3D{ -radius * std::sin(t), radius * std::cos(t), step };
     }
 
-    double getRadiusX() const noexcept override final {
-        return radius;
-    }
-
-    double getRadiusY() const noexcept override final {
+    double getRadius() const noexcept override final{
         return radius;
     }
 

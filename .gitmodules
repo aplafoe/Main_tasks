@@ -1,0 +1,3 @@
+[submodule "optional tasks/CurvesAPI"]
+	path = optional tasks/CurvesAPI
+	url = https://github.com/aplafoe/CurvesAPI
