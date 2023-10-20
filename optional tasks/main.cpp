@@ -11,7 +11,6 @@ int main() {
 
 
     constexpr size_t SIZE = 1000u;
-    constexpr size_t NUM_THREADS = 5u;
     std::vector<std::shared_ptr<ICurve>> curves;
 
     std::random_device rd;
