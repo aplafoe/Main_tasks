@@ -16,6 +16,6 @@ set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/CurvesAPI)
 
-add_executable (CADEX_TASK ${PROJECT_SOURCES})
+add_executable (78_SOLUTION ${PROJECT_SOURCES})
 
-target_link_libraries(CADEX_TASK Curves)
+target_link_libraries(78_SOLUTION Curves)
